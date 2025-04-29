@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux #per le app qt5
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
-RUN cd
-RUN git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile . && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
+RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile . && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
 
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
