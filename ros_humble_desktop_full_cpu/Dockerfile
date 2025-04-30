@@ -12,6 +12,9 @@ RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim
 #COPY ./ros_entrypoint.sh /
 RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile . && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
 
+#source the ros system env
+RUN cd && echo "source /opt/ros/humble/setup.bash" >> .bashrc
+
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
