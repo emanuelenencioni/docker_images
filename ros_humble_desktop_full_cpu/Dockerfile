@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-desktop-full=0.10.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux #per le app qt5
+RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux wget#per le app qt5 software-properties-common python3-colcon-clean
+
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
 RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile . && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
