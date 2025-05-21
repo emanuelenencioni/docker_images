@@ -13,8 +13,6 @@ RUN apt install -y software-properties-common python3-colcon-clean
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
 
-#source the ros system env
-RUN cd && echo "source /opt/ros/humble/setup.bash" >> .bashrc
 
 ARG USERNAME=emanuele
 ARG USER_UID=1000
@@ -37,7 +35,7 @@ RUN groupadd --gid "$USER_GID" "$USERNAME" \
 USER $USERNAME
 RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile .\
     && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
-
+RUN cd && echo "source /opt/ros/humble/setup.bash" >> .bashrc
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
 
