@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux wget
 #per le app qt5 software-properties-common python3-colcon-clean
-RUN apt install -y software-properties-common python3-colcon-clean ros-humble-v4l2-camera
+RUN apt install -y software-properties-common python3-colcon-clean ros-humble-v4l2-camera usbutils webcamoid
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
 
