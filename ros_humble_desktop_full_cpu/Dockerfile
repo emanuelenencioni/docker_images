@@ -36,6 +36,7 @@ USER $USERNAME
 RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile .\
     && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
 RUN cd && echo "source /opt/ros/humble/setup.bash" >> .bashrc
+RUN sudo apt update && sudo apt install v4l-utils -y
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
 

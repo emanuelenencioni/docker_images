@@ -2,7 +2,7 @@
 #### To build
 Go the subdirectory of the specific dockerfile and write the following command:
 ```bash
-docker build -t IMAGE_NAME .
+docker buildx build -t IMAGE_NAME .
 ```
 
 To allow docker to access X:
