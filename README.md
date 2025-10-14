@@ -17,3 +17,4 @@ docker container run -it  -v /dev/dri:/dev/dri --env="DISPLAY" --env="QT_X11_NO_
 
 ```
 add `--rm` to delete the container after use.
+When dealing with usb devices or particular devices, be sure to use `--privileged` before creating volume with that device in order to properly work.
