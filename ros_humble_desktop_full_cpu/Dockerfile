@@ -7,9 +7,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-desktop-full=0.10.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux wget
+RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim htop tmux wget git zip iproute2 kmod
 #per le app qt5 software-properties-common python3-colcon-clean
 RUN apt install -y software-properties-common python3-colcon-clean ros-humble-v4l2-camera usbutils webcamoid
+
+#setup req for some packges
+RUN apt update && apt install -y ros-humble-gtsam ros-humble-robot-localization ros-humble-flex-sync ros-humble-apriltag-detector
+
+#&& rm -rf LabJack-LJM_2025-05-07.zip labjack_ljm_installer.run INSTALL.md
+
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
 

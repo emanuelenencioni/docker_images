@@ -19,3 +19,5 @@ docker container run -it  -v /dev/dri:/dev/dri --env="DISPLAY" --env="QT_X11_NO_
 add `--rm` to delete the container after use.
 When dealing with usb devices or particular devices,
 The container needs `--privileged` access to interact directly with the device when it's used as a volume.
+
+In privileged mode, add `-v /lib/modules:/lib/modules` to access necessary Linux modules (e.g., for CAN bus).
