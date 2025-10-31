@@ -12,7 +12,7 @@ RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim
 RUN apt install -y software-properties-common python3-colcon-clean ros-humble-v4l2-camera usbutils webcamoid
 
 #setup req for some packges
-RUN apt update && apt install -y ros-humble-gtsam ros-humble-robot-localization ros-humble-flex-sync ros-humble-apriltag-detector
+RUN apt update && apt install -y ros-humble-gtsam ros-humble-robot-localization ros-humble-flex-sync ros-humble-apriltag-detector ros-humble-rqt-tf-tree
 
 #&& rm -rf LabJack-LJM_2025-05-07.zip labjack_ljm_installer.run INSTALL.md
 
