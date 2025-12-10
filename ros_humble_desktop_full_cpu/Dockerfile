@@ -12,9 +12,8 @@ RUN apt update && apt install -y qtwayland5 iputils-ping ros-humble-apriltag vim
 RUN apt install -y software-properties-common python3-colcon-clean ros-humble-v4l2-camera usbutils webcamoid
 
 #setup req for some packges
-RUN apt update && apt install -y ros-humble-gtsam ros-humble-robot-localization ros-humble-flex-sync ros-humble-apriltag-detector ros-humble-rqt-tf-tree
-
-#&& rm -rf LabJack-LJM_2025-05-07.zip labjack_ljm_installer.run INSTALL.md
+RUN apt update && apt install -y ros-humble-gtsam ros-humble-robot-localization ros-humble-flex-sync ros-humble-apriltag-detector ros-humble-rqt-tf-tree ros-humble-can-msgs
+#&& rm -rf LabJack-LJM_2025-05-07.zip labjick_ljm_installer.run INSTALL.md
 
 # setup entrypoint
 #COPY ./ros_entrypoint.sh /
@@ -42,7 +41,7 @@ USER $USERNAME
 RUN cd && git clone https://github.com/emanuelenencioni/config.git && mv config/.bash_profile .\
     && cat config/.bashrc >> .bashrc && mv config/.tmux.conf .
 RUN cd && echo "source /opt/ros/humble/setup.bash" >> .bashrc
-RUN sudo apt update && sudo apt install v4l-utils -y
+RUN sudo apt update && sudo apt install v4l-utils python3-pip -y
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
 
